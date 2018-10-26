@@ -1,12 +1,23 @@
 # https://www.calculatorsoup.com/calculators/statistics/mean-median-mode.php
+# Sort the list first before getting mid element
+# Check if all elements of list are digits, raise exception if not
 
-input = [50,1,-3,2,-4,6,0,-14,2,4,-6,5,1,3,2,4,6,0,-14,2,-4,6,100,100,0,14,14,4365,567,11,111,111,111,111,111,111,111,111,111,111,111,111,111]
-input_len = len(input)
-print "Input length : {}".format(input_len)
-input.sort()
+def get_median(input):
+    input_len = len(input)
+    if input_len == 0:
+        return None
+    else:
+        input.sort()
+        if input_len % 2 == 1:
+            return input[input_len / 2]
+        else:
+            i = input_len / 2
+            return (input[i - 1] + input[i]) / 2.0
 
-if input_len % 2 == 1:
-    print "Median : {}".format(input[input_len/2])
-else:
-    i = input_len/2
-    print "Median : {}".format((ixinput[i-1] + input[i])/2.0)
+
+assert get_median([-14,2,-4,6,100,100,0,14,14,4365,567,11,111]) == 14
+assert get_median([-14,2,-4,6,100,100,0,14,12,4365,567,11,111]) == 12
+assert get_median([]) == None
+#assert get_median(['2','1']) == None
+
+print "Pass"
