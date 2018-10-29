@@ -10,11 +10,9 @@ def total_watched_time(input_data):
 def total_watched_time_v2(input_data):
     input_data.sort()
     watched_minutes = 0
-    pointer = 0
-    print "lenght is {}".format(len(input_data))
     for i in range(len(input_data)):
         if i == 0:
-            s , e = input_data[0]
+            s, e = input_data[0]
             watched_minutes += (e - s)
         else:
             s, e = input_data[i]
@@ -23,7 +21,6 @@ def total_watched_time_v2(input_data):
                 watched_minutes += (e - s)
             else:
                 watched_minutes += (e - eold)
-        print watched_minutes
     return watched_minutes
 
 
